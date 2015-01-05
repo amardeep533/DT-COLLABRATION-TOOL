@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 2, 2015 7:14:22 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.cgi.org.DTCollabrationTool.dbclasses.Sessionmaster" table="sessionmaster">
+        <id name="sessionid" type="java.lang.Integer">
+            <column name="SESSIONID" />
+            <generator class="identity" />
+        </id>
+        <property name="sessionname" type="string">
+            <column name="SESSIONNAME" length="45" />
+        </property>
+        <property name="presenterid" type="string">
+            <column name="PRESENTERID" length="45" />
+        </property>
+        <set name="ideases" table="ideas" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SESSIONFKID" not-null="true" />
+            </key>
+            <one-to-many class="com.cgi.org.DTCollabrationTool.dbclasses.Ideas" />
+        </set>
+    </class>
+</hibernate-mapping>
