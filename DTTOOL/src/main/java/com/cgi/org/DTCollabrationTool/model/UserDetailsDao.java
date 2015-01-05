@@ -22,7 +22,7 @@ public class UserDetailsDao {
 		Session session = factory.openSession();
 		session.beginTransaction();
 
-		List<Userdetails> users = session.createQuery("from Userdetails")
+		List<Userdetails> users = session.createQuery("from Userdetails as usr")
 				.list();
 
 		for (Userdetails user : users) {
